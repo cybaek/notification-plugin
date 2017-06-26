@@ -55,7 +55,7 @@ public final class HudsonNotificationPropertyDescriptor extends JobPropertyDescr
 
     @Override
     public String getDisplayName() {
-        return "Hudson Job Notification";
+        return "Hudson Job Failure Notification";
     }
 
     public int getDefaultTimeout(){
@@ -68,6 +68,11 @@ public final class HudsonNotificationPropertyDescriptor extends JobPropertyDescr
         List<Endpoint> endpoints = new ArrayList<Endpoint>();
         if (formData != null && !formData.isNullObject()) {
             JSON endpointsData = (JSON) formData.get("endpoints");
+
+            System.out.println("##############");
+            System.out.println(endpointsData);
+            System.out.println("##############");
+
             if (endpointsData != null && !endpointsData.isEmpty()) {
                 if (endpointsData.isArray()) {
                     JSONArray endpointsArrayData = (JSONArray) endpointsData;

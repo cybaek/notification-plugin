@@ -30,6 +30,9 @@ public enum Phase {
 
     @SuppressWarnings( "CastToConcreteClass" )
     public void handle(Run run, TaskListener listener) {
+        if (!run.getResult().isWorseOrEqualTo(Result.FAILURE)) {
+            return;
+        }
 
         HudsonNotificationProperty property = (HudsonNotificationProperty) run.getParent().getProperty(HudsonNotificationProperty.class);
         if ( property == null ){ return; }

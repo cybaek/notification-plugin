@@ -28,12 +28,12 @@ public class JobListener extends RunListener<Run> {
 
     @Override
     public void onStarted(Run r, TaskListener listener) {
-        Phase.STARTED.handle(r, listener);
+        // NOOP
     }
 
     @Override
     public void onCompleted(Run r, TaskListener listener) {
-        Phase.COMPLETED.handle(r, listener);
+        //
     }
 
     @Override
